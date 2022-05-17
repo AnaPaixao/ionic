@@ -1,0 +1,45 @@
+<ion-content>
+
+  <img src="/assets/img/bg/right-side-top.png" id="right-top">
+  <img src="/assets/img/bg/left-side-top.png" id="left-top">
+  <img src="/assets/img/bg/right-side-bottom.png" id="right-bottom">
+  <img src="/assets/img/bg/left-side-bottom.png" id="left-bottom">
+
+  <div class="container">
+
+    <a class="nav-link" href="/first-page"><img src="/assets/img/logo.png" alt="Logo flash card"></a>
+
+    <div class="register">
+      <ion-button expand="block" fill="outline" class="button-stable" (click)="loginGoogle()">
+        <img src="./../../../assets/img/google-icon.png" width="20px" height="20px" alt="">
+        CADASTRAR COM O GOOGLE
+      </ion-button>
+
+      <p class="break">ou</p>
+
+      <ion-item class="ion-margin-top" lines="none" color="light">
+        <ion-label position="floating" color="dark">E-mail</ion-label>
+        <ion-input type="email" color="dark" [(ngModel)]="userRegister.email"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-top eye" lines="none" color="light">
+        <ion-label position="floating" color="dark">Senha</ion-label>
+        <ion-input [type]="hidePassword ? 'password' : 'text'" color="dark" [(ngModel)]="userRegister.password"></ion-input>
+        <ion-icon slot="end" style="vertical-align: middle;" [name]="!hidePassword ? 'eye' : 'eye-off'" (click)="hidePassword = !hidePassword"></ion-icon>
+      </ion-item>
+
+
+      <ion-button class="ion-margin-top" color="tertiary" expand="block" (click)="register()">
+        CADASTRAR COM O E-MAIL
+      </ion-button>
+
+      <ion-button color="tertiary" expand="block" (click)="showModalOne()">Politica de Privacidade</ion-button>
+
+
+    </div>
+
+    <p>Já tem uma conta?</p>
+
+    <a class="nav-link" href="/login">Entrar</a>
+  </div>
+</ion-content>

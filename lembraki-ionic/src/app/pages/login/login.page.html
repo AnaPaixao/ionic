@@ -1,0 +1,45 @@
+<ion-content>
+
+  <img src="/assets/img/bg/right-side-top.png" id="right-top">
+  <img src="/assets/img/bg/left-side-top.png" id="left-top">
+  <img src="/assets/img/bg/right-side-bottom.png" id="right-bottom">
+  <img src="/assets/img/bg/left-side-bottom.png" id="left-bottom">
+
+
+  <div class="container">
+    <!---Mudança de Logo -->
+    <a class="nav-link" href="/first-page"><img src="/assets/img/logo.png" alt="Logo flash card"></a>
+
+    <div class="login">
+      <ion-button expand="block" fill="outline" class="button-stable" (click)="loginGoogle()">
+        <img src="assets/img/google-icon.png" width="20px" height="20px" alt="">
+        ENTRAR COM O GOOGLE
+      </ion-button>
+
+      <p class="break">ou</p>
+
+      <ion-item class="ion-margin-top" lines="none" color="light">
+        <ion-label position="floating">E-mail</ion-label>
+        <ion-input type="email" [(ngModel)]="userLogin.email"></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-top eye" lines="none" color="light">
+        <ion-label position="floating">Senha</ion-label>
+        <ion-input [type]="hidePassword ? 'password' : 'text'" [(ngModel)]="userLogin.password"></ion-input>
+        <ion-icon slot="end" style="vertical-align: middle;" [name]="!hidePassword ? 'eye' : 'eye-off'" (click)="hidePassword = !hidePassword"></ion-icon>
+      </ion-item>
+
+      <ion-button class="ion-margin-top" color="tertiary" expand="block" (click)="login()">
+        ENTRAR COM O E-MAIL
+      </ion-button>
+
+      <a href="#">Esqueceu sua senha?</a>
+    </div>
+
+    <p>Não tem uma conta?</p>
+
+
+
+    <a class="nav-link" href="/register">Criar conta</a>
+  </div>
+</ion-content>

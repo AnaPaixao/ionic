@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar color="primary" mode="md">
+  <ion-buttons slot="start">
+    <ion-back-button></ion-back-button>
+  </ion-buttons>
+    <ion-title>{{deckName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<div *ngFor="let card of cards | async; let i = index">
+  <div class="content" *ngIf="i == index">
+    <div class="card" (click)="flipCard()">
+      <div class="card-inner" [style.transform]="direction == 'definition' ? 'rotateY(180deg)' : 'rotateY(0deg)'" #cardInner>
+          <div class="card-front">
+            <div class="text">{{card.front}}</div>
+          </div>
+          <div class="card-back" #cardBackContent>
+            <div #backInner class="text">{{card.back}}</div>
+          </div>
+      </div>
+    </div>
+    <div class="buttons ion-margin-bottom">
+    <ion-button (click)="Remember(card)" color="success">
+      Lembro
+    </ion-button>
+
+    <ion-button (click)="NoRemember(card)" color="danger">
+      Não lembro
+    </ion-button>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="deckLength && deckLength > index" class="progress-bar ion-margin-top">
+  <p class="ion-text-center">{{index}}/{{deckLength}}</p>
+  <ion-progress-bar value="{{index/deckLength}}"></ion-progress-bar>
+</div>
+
+<!-- Result -->
+
+<div *ngIf="!(deckLength && deckLength > index)" class="result">
+
+  <h1 class="ubuntu ion-margin-bottom">Resumo</h1>
+
+  <div class="content-result">
+    <div class="right">
+      <p>{{ rightCards.length }}</p>
+      <ion-icon style="font-size: 1.6rem;" name="checkmark-outline"></ion-icon>
+    </div>
+    <div class="wrong">
+      <p>{{ wrongCards.length}}</p>
+      <ion-icon style="font-size: 1.6rem;" name="close-outline"></ion-icon>
+    </div>
+  </div>
+
+  <h1 *ngIf="wrongCards[0]" class="ubuntu">Cartas erradas:</h1>
+  <div *ngIf="!wrongCards[0]" style="text-align: center;" class="ubuntu">
+    <h2 class="ubuntu">Você acertou TUDO!</h2>
+    <h2 class="ubuntu">Continue assim, Parabéns!!</h2>
+  </div>
+
+  <div *ngIf="wrongCards[0]" class="content-wrong-cards">
+    <div *ngFor="let card of wrongCards" class="card-wrong">{{ direction == 'term' ? card.front : card.back }}</div>
+  </div>
+</div>
+
+</ion-content>
+

@@ -1,0 +1,216 @@
+.content {
+  margin-top: 8vh;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+
+.card {
+  background-color: transparent;
+  width: 80%;
+  max-width:600px;
+  height: 260px;
+  text-align: center;
+  border-radius: 5px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+// .card:hover .card-inner {
+//   transform: rotateY(180deg);
+// }
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background-color: rgb(255, 255, 153);
+  color: black;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y:scroll;
+
+  .text {
+    font-size: 2rem;
+    padding: 5px 5px;
+   // text-shadow: 2px 2px 2px rgb(0, 0, 0,0.4);
+  }
+}
+
+.card-back {
+  background-color: var(--ion-color-tertiary);
+  color: #fff;
+  transform: rotateY(180deg);
+  margin-left: 10px;
+  overflow-y:scroll;
+  padding: 5px;
+
+  .text{
+ // text-shadow: 2px 2px 2px rgb(0, 0, 0,0.4);
+    font-size: 1.2rem;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    margin-right: 10px;
+
+  }
+}
+
+ion-button {
+  width: 130px;
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  max-width: 320px;
+  width: 80%;
+}
+
+.progress-bar {
+  p{
+    font-weight: bold;
+  }
+
+  display:flex;
+  flex-direction: column;
+  align-items:center;
+}
+
+ion-progress-bar {
+  height: 15px;
+  width: 80%;
+  max-width: 320px;
+  box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.25)
+}
+
+
+
+/* GENERAL */
+.flex-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+//================= PAGINA RESULT ==================//
+
+.result {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+
+.content-result {
+  width: 100vw;
+  max-width: 300px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+  font-size: 1.4rem;
+  color: #fff;
+
+
+  .right {
+    height: 20vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: green;
+    box-shadow: 2px 2px 3px rgb(0, 0, 0, .5);
+  }
+
+  .wrong {
+    height: 20vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: firebrick;
+    box-shadow: 2px 2px 5px rgb(0, 0, 0, .5);
+  }
+
+  ion-icon {
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    --ionicon-stroke-width: 50px;
+  }
+}
+
+.content-result > div {
+  border-radius: 2px;
+  width: 45%;
+  height: 45%;
+  background: #000;
+}
+
+.content-wrong-cards {
+  display: flex;
+  max-width: 300px;
+  flex-wrap: wrap;
+  justify-content: center;
+  min-width: 80%;
+}
+
+.content-wrong-cards > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 30vh;
+  margin-bottom: 10px;
+  background-color: rgb(255, 255, 153);
+  text-align: center;
+  border-radius: 5px;
+  border: 1px solid rgba(128, 128, 128, 0.726);
+  box-shadow: 3px 3px 5px rgba(0,0,0,0.5);
+  font-weight: bold;
+
+}
+
+
+h1 {
+    text-shadow: 1px 1px rgba(0,0,0,0.5);
+}
+
+@media screen and (min-width: 768px) {
+
+  .content-wrong-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    max-width: none;
+    padding: 30px;
+  }
+
+  .content-wrong-cards > div {
+    width: 40%;
+    margin-bottom: 20px;
+  }
+
+}
+
